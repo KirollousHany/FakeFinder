@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_voice_filter"
+    app:startDestination="@id/uploadFragment">
+
+    <fragment
+        android:id="@+id/voiceFiltrationFragment"
+        android:name="com.example.fakefinder.ui.VoiceFiltration.Choice.ChoiceUploadRecordFragment"
+        android:label="fragment_voice_filtration"
+        tools:layout="@layout/fragment_choice_filtration" >
+        <action
+            android:id="@+id/action_voiceFiltrationFragment_to_uploadFragment"
+            app:destination="@id/uploadFragment" />
+        <action
+            android:id="@+id/action_voiceFiltrationFragment_to_recordFragment"
+            app:destination="@id/recordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/uploadFragment"
+        android:name="com.example.fakefinder.ui.VoiceFiltration.UploadAudio.FilteredUploadFilterFragment"
+        android:label="fragment_upload"
+        tools:layout="@layout/fragment_upload_filter" >
+        <action
+            android:id="@+id/action_uploadFragment_to_waitingFiltrationFragment"
+            app:destination="@id/waitingFiltrationFragment"
+            app:popUpTo="@id/uploadFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/recordFragment"
+        android:name="com.example.fakefinder.ui.VoiceFiltration.RecordAudio.RecordFilterFragment"
+        android:label="fragment_record"
+        tools:layout="@layout/fragment_record_filter" />
+    <fragment
+        android:id="@+id/waitingFiltrationFragment"
+        android:name="com.example.fakefinder.ui.VoiceFiltration.WaitingScreen.WaitingFiltrationFragment"
+        android:label="fragment_waiting_filteration"
+        tools:layout="@layout/fragment_waiting_filteration" >
+        <argument
+            android:name="voiceUri"
+            app:argType="android.net.Uri" />
+        <argument
+            android:name="voiceName"
+            app:argType="string" />
+    </fragment>
+</navigation>

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "68118131279",
+    "project_id": "fake-finder-76208",
+    "storage_bucket": "fake-finder-76208.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:68118131279:android:7d5c79a5a28838af16303a",
+        "android_client_info": {
+          "package_name": "com.example.fakefinder"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8Lpb9zAudKxOX_iUdVvz_hoWCElysCmg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

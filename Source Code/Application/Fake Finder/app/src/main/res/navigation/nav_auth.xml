@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_app"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.fakefinder.ui.Auth.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_forgetPassFragment"
+            app:destination="@id/forgetPassFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_nameGenderFragment"
+            app:destination="@id/nameGenderFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/forgetPassFragment"
+        android:name="com.example.fakefinder.ui.Auth.forgetPass.ForgetPassFragment"
+        android:label="fragment_forget_pass"
+        tools:layout="@layout/fragment_forget_pass" />
+    <fragment
+        android:id="@+id/nameGenderFragment"
+        android:name="com.example.fakefinder.ui.Auth.signup.FirstSignupScreen.NameGenderFragment"
+        android:label="fragment_name_gender"
+        tools:layout="@layout/fragment_name_gender" >
+        <action
+            android:id="@+id/action_nameGenderFragment_to_profilePicFragment"
+            app:destination="@id/profilePicFragment"
+            app:popUpTo="@id/nameGenderFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_nameGenderFragment_to_loginFragment2"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/nameGenderFragment"
+            app:popUpToInclusive="true"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/profilePicFragment"
+        android:name="com.example.fakefinder.ui.Auth.signup.SecondSignupScreen.ProfilePicFragment"
+        android:label="fragment_profile_pic"
+        tools:layout="@layout/fragment_profile_pic" >
+        <action
+            android:id="@+id/action_profilePicFragment_to_emailFragment"
+            app:destination="@id/emailFragment"
+            app:popUpTo="@id/profilePicFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="fullName"
+            app:argType="string" />
+        <argument
+            android:name="userName"
+            app:argType="string" />
+        <argument
+            android:name="gender"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_profilePicFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/profilePicFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_profilePicFragment_to_nameGenderFragment2"
+            app:destination="@id/nameGenderFragment"
+            app:popUpTo="@id/profilePicFragment"
+            app:popUpToInclusive="true" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/passwordFragment"
+        android:name="com.example.fakefinder.ui.Auth.signup.FourthSigupScreen.PasswordFragment"
+        android:label="fragment_password"
+        tools:layout="@layout/fragment_password">
+        <argument
+            android:name="fullname"
+            app:argType="string" />
+        <argument
+            android:name="username"
+            app:argType="string" />
+        <argument
+            android:name="email"
+            app:argType="string" />
+        <argument
+            android:name="gender"
+            app:argType="string" />
+        <argument
+            android:name="img_uri"
+            app:argType="android.net.Uri"
+            />
+        <action
+            android:id="@+id/action_passwordFragment_to_emailFragment"
+            app:destination="@id/emailFragment"
+            app:popUpTo="@id/passwordFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_passwordFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/passwordFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/emailFragment"
+        android:name="com.example.fakefinder.ui.Auth.signup.ThirdSignupScreen.EmailFragment"
+        android:label="fragment_email"
+        tools:layout="@layout/fragment_email" >
+        <action
+            android:id="@+id/action_emailFragment_to_passwordFragment"
+            app:destination="@id/passwordFragment"
+            app:popUpTo="@id/emailFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="fullname"
+            app:argType="string" />
+        <argument
+            android:name="userName"
+            app:argType="string" />
+        <argument
+            android:name="gender"
+            app:argType="string" />
+        <argument
+            android:name="img_uri"
+            app:argType="android.net.Uri"
+            />
+        <action
+            android:id="@+id/action_emailFragment_to_profilePicFragment"
+            app:destination="@id/profilePicFragment"
+            app:popUpTo="@id/emailFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_emailFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/emailFragment"
+            app:popUpToInclusive="true" />
+
+    </fragment>
+</navigation>

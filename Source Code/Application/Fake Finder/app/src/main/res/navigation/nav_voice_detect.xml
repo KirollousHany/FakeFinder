@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_voice_detect"
+    app:startDestination="@id/voiceDetectionFragment">
+
+    <fragment
+        android:id="@+id/voiceDetectionFragment"
+        android:name="com.example.fakefinder.ui.VoiceDetection.UploadAudio.DetectionUploadFragment"
+        android:label="fragment_voice_detection"
+        tools:layout="@layout/fragment_upload_detection" >
+        <action
+            android:id="@+id/action_voiceDetectionFragment_to_waitingDetectionFragment"
+            app:destination="@id/waitingDetectionFragment"
+            app:popUpTo="@id/voiceDetectionFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/waitingDetectionFragment"
+        android:name="com.example.fakefinder.ui.VoiceDetection.WaitingScreen.WaitingDetectionFragment"
+        android:label="fragment_waiting_detection"
+        tools:layout="@layout/fragment_waiting_detection" >
+        <argument
+            android:name="voiceUri"
+            app:argType="android.net.Uri" />
+        <argument
+            android:name="voiceName"
+            app:argType="string" />
+    </fragment>
+</navigation>

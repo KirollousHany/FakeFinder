@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_voice_gene"
+    app:startDestination="@id/generationChoiceFragment">
+
+    <fragment
+        android:id="@+id/voiceGenerationFragment"
+        android:name="com.example.fakefinder.ui.VoiceGeneration.UploadVoiceText.FirstScreen.VoiceGenerationFragment"
+        android:label="fragment_voice_generation"
+        tools:layout="@layout/fragment_voice_generation">
+        <action
+            android:id="@+id/action_voiceGenerationFragment_to_voiceGenerationTextFragment"
+            app:destination="@id/voiceGenerationTextFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/waitingGenerateFragment"
+        android:name="com.example.fakefinder.ui.VoiceGeneration.Waiting.TwoVoicesResults.WaitingGenerateFragment"
+        android:label="fragment_waiting_generate"
+        tools:layout="@layout/fragment_waiting_generate">
+        <argument
+            android:name="firstVoiceUri"
+            app:argType="android.net.Uri" />
+        <argument
+            android:name="SecondVoiceUri"
+            app:argType="android.net.Uri" />
+    </fragment>
+    <fragment
+        android:id="@+id/generationChoiceFragment"
+        android:name="com.example.fakefinder.ui.VoiceGeneration.Choice.GenerationChoiceFragment"
+        android:label="fragment_generation_choice"
+        tools:layout="@layout/fragment_generation_choice">
+        <action
+            android:id="@+id/action_generationChoiceFragment_to_voiceGenerationFragment"
+            app:destination="@id/voiceGenerationFragment" />
+        <action
+            android:id="@+id/action_generationChoiceFragment_to_voiceGenerationTwoVoicesFragmentFirst"
+            app:destination="@id/voiceGenerationTwoVoicesFragmentFirst" />
+    </fragment>
+    <fragment
+        android:id="@+id/voiceGenerationTwoVoicesFragmentFirst"
+        android:name="com.example.fakefinder.ui.VoiceGeneration.UploadVoice.FirstScreen.VoiceGenerationTwoVoicesFragmentFirst"
+        android:label="fragment_voice_generation_two_voices_first"
+        tools:layout="@layout/fragment_voice_generation_two_voices_first">
+        <action
+            android:id="@+id/action_voiceGenerationTwoVoicesFragmentFirst_to_voiceGenerationTwoVoicesFragmentSecond"
+            app:destination="@id/voiceGenerationTwoVoicesFragmentSecond"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/voiceGenerationTwoVoicesFragmentSecond"
+        android:name="com.example.fakefinder.ui.VoiceGeneration.UploadVoice.SecondScreen.VoiceGenerationTwoVoicesFragmentSecond"
+        android:label="fragment_voice_generation_two_voices_second"
+        tools:layout="@layout/fragment_voice_generation_two_voices_second">
+        <argument
+            android:name="firstVoiceUri"
+            app:argType="android.net.Uri" />
+        <action
+            android:id="@+id/action_voiceGenerationTwoVoicesFragmentSecond_to_waitingGenerateFragment"
+            app:destination="@id/waitingGenerateFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/waitingGenerateNewFragment"
+        android:name="com.example.fakefinder.ui.VoiceGeneration.Waiting.OneVoiceResults.WaitingGenerateNewFragment"
+        android:label="fragment_waiting_generate_new"
+        tools:layout="@layout/fragment_waiting_generate_new">
+        <argument
+            android:name="text"
+            app:argType="string" />
+        <argument
+            android:name="voiceUri"
+            app:argType="android.net.Uri" />
+    </fragment>
+    <fragment
+        android:id="@+id/voiceGenerationTextFragment"
+        android:name="com.example.fakefinder.ui.VoiceGeneration.UploadVoiceText.SecondScreen.VoiceGenerationTextFragment"
+        android:label="fragment_voice_generation_text"
+        tools:layout="@layout/fragment_voice_generation_text">
+        <action
+            android:id="@+id/action_voiceGenerationTextFragment_to_waitingGenerateNewFragment"
+            app:destination="@id/waitingGenerateNewFragment" />
+        <argument
+            android:name="voiceUri"
+            app:argType="android.net.Uri" />
+    </fragment>
+</navigation>
